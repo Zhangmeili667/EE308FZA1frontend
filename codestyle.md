@@ -1,4 +1,4 @@
-# CodeStyle_Frontend
+# 832202215_contacts_Front-End_CodeStyle
 Resource: https://v2.vuejs.org/v2/style-guide/index.html?redirect=true
 ## Priority A:Essential (Error Prevetion)
 ### Multi-word component names essential
