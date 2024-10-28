@@ -142,3 +142,86 @@ In JavaScript, splitting objects with multiple properties over multiple lines is
   baz="c"
 />
 ```
+
+### Quoted attribute valuesstrongly recommended
+Non-empty HTML attribute values should always be inside quotes (single or double, whichever is not used in JS).
+While attribute values without any spaces are not required to have quotes in HTML, this practice often leads to avoiding spaces, making attribute values less readable.
+
+**Bad**
+```html
+<input type=text>
+<AppSidebar :style={width:sidebarWidth+'px'}>
+```
+**Good**
+```html
+<input type="text">
+<AppSidebar :style="{ width: sidebarWidth + 'px' }">
+```
+## Priority C Rules: Recommended (Minimizing Arbitrary Choices and Cognitive Overhead)
+### Component/instance options order recommended
+Component/instance options should be ordered consistently.
+This is the default order we recommend for component options. They’re split into categories, so you’ll know where to add new properties from plugins.
+
+1.**Side Effects** (triggers effects outside the component)
+
+el
+
+2.**Global Awareness** (requires knowledge beyond the component)
+
+name
+parent
+
+3.**Component Type** (changes the type of the component)
+
+functional
+
+4.**Template Modifiers** (changes the way templates are compiled)
+
+delimiters
+comments
+
+5.**Template Dependencies** (assets used in the template)
+
+components
+directives
+filters
+
+6.**Composition** (merges properties into the options)
+
+extends
+mixins
+
+7.**Interface** (the interface to the component)
+
+inheritAttrs
+model
+props/propsData
+
+8.**Local State** (local reactive properties)
+
+data
+computed
+
+9.**Events** (callbacks triggered by reactive events)
+
+watch
+Lifecycle Events (in the order they are called)
+beforeCreate
+created
+beforeMount
+mounted
+beforeUpdate
+updated
+activated
+deactivated
+beforeDestroy
+destroyed
+
+10.**Non-Reactive Properties** (instance properties independent of the reactivity system)
+
+methods
+
+11.**Rendering** (the declarative description of the component output)
+
+template/render
+renderError
